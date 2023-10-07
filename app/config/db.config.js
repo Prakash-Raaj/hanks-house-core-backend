@@ -1,3 +1,3 @@
 module.exports = {
-  url: 'mongodb://0.0.0.0:27017/prakash_db',
+  url: "mongodb+srv://hankshouseltd:<password>@hankshousecluster.vwm5lbx.mongodb.net/",
 };
