@@ -31,5 +31,3 @@ tutorialRouter.delete("/:id", deleteTutorial);
 
 // Create a new Tutorial
 tutorialRouter.delete("/", deleteAll);
-
-// export default tutorialRouter;
