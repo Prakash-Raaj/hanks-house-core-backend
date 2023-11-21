@@ -5,6 +5,7 @@ import db from "./app/models/index.js";
 import { tutorialRouter } from "./app/routes/turorial.routes.js";
 import { authRouter } from "./app/routes/auth.routes.js";
 import { userRouter } from "./app/routes/user.routes.js";
+import { productRouter } from "./app/routes/product.routes.js";
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.get("/", (req, res) => {
 app.use("/tutorial", tutorialRouter);
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
+app.use("/product", productRouter);
 
 // require("./app/routes/turorial.routes")(app);
 

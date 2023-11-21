@@ -132,15 +132,3 @@ export const deleteAll = async (req, res) => {
     });
   }
 };
-
-// Find all published Tutorials
-export const findAllPublished = async (req, res) => {
-  try {
-    const data = await Tutorial.find({ published: true });
-    res.send(data);
-  } catch (err) {
-    res.status(500).send({
-      message: err.message || "Some error occurred while retrieving tutorials.",
-    });
-  }
-};

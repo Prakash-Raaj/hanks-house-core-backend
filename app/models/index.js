@@ -7,7 +7,7 @@ import Product from "./product.model.js";
 mongoose.Promise = global.Promise;
 const db = {};
 db.mongoose = mongoose;
-// db.tutorial = Tutorial;
+db.tutorial = Tutorial;
 db.user = User;
 db.role = Role;
 db.product = Product;
