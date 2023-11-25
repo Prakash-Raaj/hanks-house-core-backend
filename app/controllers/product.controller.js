@@ -1,4 +1,4 @@
-import db from "../models/index.js";
+import db from '../models/index.js';
 
 const Product = db.product;
 
@@ -7,7 +7,7 @@ export const create = async (req, res) => {
   try {
     // Validate request
     if (!req.body.title) {
-      res.status(400).send({ message: "Content can not be empty!" });
+      res.status(400).send({ message: 'Content can not be empty!' });
       return;
     }
 
@@ -30,7 +30,9 @@ export const create = async (req, res) => {
     res.send(data);
   } catch (err) {
     res.status(500).send({
-      message: err.message || "Some error occurred while creating the Product.",
+      message:
+        err.message ||
+        'Some error occurred while creating the Product.',
     });
   }
 };
@@ -38,16 +40,18 @@ export const create = async (req, res) => {
 // Retrieve all Tutorials from the database.
 export const findAll = async (req, res) => {
   const title = req.query.title;
-  const condition = title
-    ? { title: { $regex: new RegExp(title), $options: "i" } }
-    : {};
+  // const condition = title
+  //   ? { title: { $regex: new RegExp(title), $options: "i" } }
+  //   : {};
 
   try {
-    const data = await Tutorial.find(condition);
+    const data = await Product.find({});
     res.send(data);
   } catch (err) {
     res.status(500).send({
-      message: err.message || "Some error occurred while retrieving tutorials.",
+      message:
+        err.message ||
+        'Some error occurred while retrieving tutorials.',
     });
   }
 };
@@ -57,14 +61,16 @@ export const findOne = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const data = await Tutorial.findById(id);
+    const data = await Product.findById(id);
     if (!data)
-      res.status(404).send({ message: "Not found Tutorial with id " + id });
+      res
+        .status(404)
+        .send({ message: 'Not found Tutorial with id ' + id });
     else res.send(data);
   } catch (err) {
     res
       .status(500)
-      .send({ message: "Error retrieving Tutorial with id=" + id });
+      .send({ message: 'Error retrieving Tutorial with id=' + id });
   }
 };
 
@@ -72,7 +78,7 @@ export const findOne = async (req, res) => {
 export const update = async (req, res) => {
   if (!req.body) {
     return res.status(400).send({
-      message: "Data to update can not be empty!",
+      message: 'Data to update can not be empty!',
     });
   }
 
@@ -86,10 +92,11 @@ export const update = async (req, res) => {
       res.status(404).send({
         message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found!`,
       });
-    } else res.send({ message: "Tutorial was updated successfully." });
+    } else
+      res.send({ message: 'Tutorial was updated successfully.' });
   } catch (err) {
     res.status(500).send({
-      message: "Error updating Tutorial with id=" + id,
+      message: 'Error updating Tutorial with id=' + id,
     });
   }
 };
@@ -108,12 +115,12 @@ export const deleteTutorial = async (req, res) => {
       });
     } else {
       res.send({
-        message: "Tutorial was deleted successfully!",
+        message: 'Tutorial was deleted successfully!',
       });
     }
   } catch (err) {
     res.status(500).send({
-      message: "Could not delete Tutorial with id=" + id,
+      message: 'Could not delete Tutorial with id=' + id,
     });
   }
 };
@@ -128,7 +135,8 @@ export const deleteAll = async (req, res) => {
   } catch (err) {
     res.status(500).send({
       message:
-        err.message || "Some error occurred while removing all tutorials.",
+        err.message ||
+        'Some error occurred while removing all tutorials.',
     });
   }
 };
