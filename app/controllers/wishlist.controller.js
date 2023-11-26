@@ -37,8 +37,7 @@ export const getWishlistItemsByUserId = async (req, res) => {
 
 export const deleteWishlistItemById = async (req, res) => {
   try {
-    const itemId = req.params.itemId;
-
+    const itemId = req.params.id;
     const deletedWishlistItem = await Wishlist.findByIdAndDelete(itemId);
 
     if (!deletedWishlistItem) {
