@@ -45,7 +45,6 @@ export const deleteWishlistItemById = async (req, res) => {
         message: "Wishlist item not found for deletion.",
       });
     }
-
     res.send({ message: "Wishlist item deleted successfully!" });
   } catch (err) {
     res.status(500).send({
